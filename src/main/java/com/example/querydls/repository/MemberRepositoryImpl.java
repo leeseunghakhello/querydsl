@@ -3,8 +3,11 @@ package com.example.querydls.repository;
 
 import com.example.querydls.dto.MemberSearchCondition;
 import com.example.querydls.dto.MemberTeamDto;
+import com.example.querydls.entity.Member;
+import com.example.querydls.dto.QMemberTeamDto;
 import com.querydsl.core.QueryResults;
 import com.querydsl.core.types.dsl.BooleanExpression;
+import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
 import org.springframework.data.domain.Page;
@@ -15,6 +18,8 @@ import org.springframework.data.support.PageableExecutionUtils;
 
 import java.util.List;
 
+import static com.example.querydls.entity.QMember.member;
+import static com.example.querydls.entity.QTeam.team;
 import static org.springframework.util.StringUtils.hasText;
 
 public class MemberRepositoryImpl extends QuerydslRepositorySupport implements MemberRepositoryCustom{
@@ -24,6 +29,7 @@ public class MemberRepositoryImpl extends QuerydslRepositorySupport implements M
     private final JPAQueryFactory queryFactory;
 
     public MemberRepositoryImpl(EntityManager em) {
+        super(Member.class);
         this.queryFactory = new JPAQueryFactory(em);
     }
 

@@ -41,30 +41,6 @@ dependencies {
 
 }
 
-def querydslDir = "$buildDir/generated/querydsl"
-
-compileJava.doFirst {
-    delete file("${querydslDir}/com")
-    ant.echo(message: "compileJava... we successully deleted files")
-}
-
-
-
-sourceSets {
-    main.java.srcDir querydslDir
-}
-
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
-    querydsl.extendsFrom compileClasspath
-}
-
-tasks.named('test') {
-    useJUnitPlatform()
-}
-
 clean {
     delete file('src/main/generated')
 }

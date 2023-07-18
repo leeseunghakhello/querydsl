@@ -11,6 +11,8 @@ import org.springframework.data.support.PageableExecutionUtils;
 
 import java.util.List;
 
+import static com.example.querydls.entity.QMember.member;
+import static com.example.querydls.entity.QTeam.team;
 import static org.springframework.util.StringUtils.hasText;
 
 

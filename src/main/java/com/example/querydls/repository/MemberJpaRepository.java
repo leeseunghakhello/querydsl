@@ -3,6 +3,7 @@ package com.example.querydls.repository;
 
 import com.example.querydls.dto.MemberSearchCondition;
 import com.example.querydls.dto.MemberTeamDto;
+import com.example.querydls.dto.QMemberTeamDto;
 import com.example.querydls.entity.Member;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.dsl.BooleanExpression;
@@ -13,6 +14,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
+import static com.example.querydls.entity.QMember.member;
+import static com.example.querydls.entity.QTeam.team;
 import static org.springframework.util.StringUtils.hasText;
 
 @Repository
