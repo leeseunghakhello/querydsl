@@ -69,8 +69,8 @@ public class MemberRepositoryImpl extends QuerydslRepositorySupport implements M
                         ageGoe(condition.getAgeGoe()),
                         ageLoe(condition.getAgeLoe())
                 )
-                .offset(pageable.getOffset())
-                .limit(pageable.getPageSize())
+                .offset(pageable.getOffset())//페이지 크기처리
+                .limit(pageable.getPageSize())//페이지 개수 제한
                 .fetchResults();
 
         List<MemberTeamDto> content = results.getResults();

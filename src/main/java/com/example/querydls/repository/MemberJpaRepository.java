@@ -86,7 +86,7 @@ public class MemberJpaRepository {
                         team.name.as("teamName")
                 ))
                 .from(member)
-                .leftJoin(member.team, team)
+                .leftJoin(member.team, team)//조인 연산 수행
                 .where(builder)
                 .fetch();
     }
